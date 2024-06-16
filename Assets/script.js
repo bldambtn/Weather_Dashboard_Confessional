@@ -2,7 +2,8 @@
 let locList = JSON.parse(localStorage.getItem("locations")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 const formEl = $("#searchForm");
-const cityStateEL = $('input[name="city-state"]');
+const cityStateEL = $("#city-state");
+const skillsListEl = $("#skills-list");
 
 //Fuction to generate a unique location ID
 function generateLocationID() {
