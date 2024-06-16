@@ -1,0 +1,117 @@
+/*Global Selector*/
+* {
+    /*Initiates Box Sizing*/
+    box-sizing: border-box;
+    /*Dark Gray color variable derived from Open Weather API Icons*/
+    --darkgrayAC: #48484A;
+    /*Green accent color variable selected to coordinated with Open Weather API Icons*/
+    --greenAC: #869D7A;
+    /*Blue accent color variable selected to coordinated with Open Weather API Icons*/
+    --blueAC: #6BA292;
+    /*Orange color variable derived from Open Weather API Icons*/
+    --orangeAC: #EC6E4C;
+    /*White color variable derived from Open Weather API Icons*/
+    --lightAC: #FEFEFE;
+}
+
+/*Targets the body element*/
+body {
+    /*Sets the bg to a linear-gradient, light to dark*/
+    background-image: linear-gradient(0deg, rgba(134,157,122,1) 0%, rgba(255,255,255,1) 50%, rgba(255,255,255,1) 100%);
+}
+
+/*Targets the header element*/
+header {
+    /*Sets a 5px margin around the header element*/
+    margin: 5px;
+    /*Sets the background color to orange*/
+    background-color: var(--orangeAC);
+    /*Aligns text to the right*/
+    text-align: right;
+}
+
+/*Targets the h1 element*/
+h1 {
+    /*Sets font color to dark gray*/
+    color: var(--darkgrayAC);
+    /*Sets 10px top/bottom and 30px right of the h1 element*/
+    padding: 10px 30px 10px 0px;
+}
+
+/*Targets the main element*/
+main {
+    /*Sets the display to flex*/
+    display: flex;
+}
+
+/*Targets the aside selement*/
+aside {
+    /*Sets the aside to 30% of the main element width*/
+    flex: 30%;
+    /*Puts a 1px solid gray boarder around the aside element*/
+    border: 1px solid var(--darkgrayAC);
+    /*Sets the aside height to 100% of the viewport*/
+    height: 100vh;
+    /*Sets a 5px margin around the aside*/
+    margin: 5px;
+}
+
+/*Targets the search-section class*/
+.search-section {    
+    /*Puts a 1px solid gray boarder around the aside element*/
+    border-bottom: 1px solid var(--darkgrayAC);
+    /*Sets the aside height to 30% of the aside height*/
+    height: 30%;
+}
+
+/*Targets the section inside of the main element*/
+.search-section h2 {
+    /*Sets 10px top/bottom and 30px right of the h1 element*/
+    padding: 5px 0px 0px 5px;
+    /*Sets the font color to dark gray*/
+    color: var(--darkgrayAC);
+}
+
+/*Targets the section inside of the main element*/
+.list-section {
+    /*Sets the aside height to 70% of the aside height*/
+    height: 70%;
+}
+
+/*Targest the cards-section class*/
+.cards-section {
+    /*Sets the cards section to 70% of the main element width*/
+    flex: 70%;
+    /*Sets a 5px margin around the cards section class*/
+    margin: 5px;
+}
+
+/*Targest the card-today class*/
+.card-today {
+    /*Sets the card-today class to 30% of the cards-section height*/
+    height: 30%;
+    /*Puts a 1px solid gray boarder around the cards section class*/
+    border: 1px solid var(--darkgrayAC);
+    /*Sets a 10px margin below the card-today class*/
+    margin-bottom: 10px;
+}
+
+/*Targest h2 element within the card-today class*/
+.card-today h2 {
+    /*Sets 10px top/bottom and 30px right of the h1 element*/
+    padding: 5px 0px 0px 5px;
+    /*Sets the font color to dark gray*/
+    color: var(--darkgrayAC);
+}
+
+/*Targest the card-future class*/
+.card-future {
+    /*Sets the card-future class to 70% of the cards-section height*/
+    height: 70%;
+    /*Removes margin around the cards section class*/
+    margin: 0;
+}
+
+footer {
+    height: 50px;
+}
