@@ -44,7 +44,11 @@ The following image shows the web application's appearance and functionality:
 
 *   Coding Boot Camp. (n.d.). (accessed June 16, 2024) How to Use API Keys. Retrieved from https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys 
 
+*	CSS Gradient. (n.d.). (accessed June 16, 2024) Retrieved from https://cssgradient.io/ 
+
 *   OpenWeatherMap. (n.d.). (accessed June 16, 2024) 5 Day Weather Forecast. Retrieved from https://openweathermap.org/forecast5 
+
+*   W3Schools. (accessed June 16, 2024). CSS Gradients. Retrieved from https://www.w3schools.com/css/css3_gradients.asp
 
 ## License
 MIT License
