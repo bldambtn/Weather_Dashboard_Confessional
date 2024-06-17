@@ -3,7 +3,7 @@ let locList = JSON.parse(localStorage.getItem("locations")) || [];
 let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 const formEl = $("#searchForm");
 const cityStateEL = $("#city-state");
-const skillsListEl = $("#skills-list");
+const citiesListEl = $("#cities-list");
 
 //Fuction to generate a unique location ID
 function generateLocationID() {
@@ -18,6 +18,13 @@ function generateLocationID() {
 
   // Return the task ID as a string
   return "location-" + timestamp + "-" + nextId;
+}
+
+// Function to print cities under the search form
+function printCities(locationEntered) {
+  const listEl = $("<li>");
+  listEl.addClass("list-group-item").text(locationEntered);
+  listEl.appendTo(citiesListEl);
 }
 
 //Function searching by City, State and saving to localStorage
@@ -51,6 +58,11 @@ function handleSearch(event) {
       // Add the new task to taskList
       locList.push(locations);
     }
+
+    // Save the updated task list to localStorage
+    localStorage.setItem("locations", JSON.stringify(locList));
+
+    printCities(locationEntered);
 
     // Clear input fields
     $('input[type="text"]').val("");

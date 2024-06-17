@@ -70,7 +70,7 @@ aside {
   /*Puts a 1px solid gray boarder around the aside element*/
   border-bottom: 1px solid var(--darkgrayAC);
   /*Sets the aside height to 30% of the aside height*/
-  height: 30%;
+  height: auto;
 }
 
 /*Targets the section inside of the main element*/
@@ -79,6 +79,7 @@ aside {
   padding: 10px 0px 0px 5px;
   /*Sets the font color to dark gray*/
   color: var(--darkgrayAC);
+  /*Removes inhereted margin*/
   margin: 0;
 }
 
@@ -93,7 +94,7 @@ aside {
 /*Targets the city-state id*/
 #city-state {
   /*Sets a 5% margin below the city, state input field*/
-  margin-bottom: 5%;
+  margin-bottom: 8%;
 }
 
 /*Targets the search button*/
@@ -109,7 +110,23 @@ aside {
 /*Targets the section inside of the main element*/
 .list-section {
   /*Sets the aside height to 70% of the aside height*/
-  height: 70%;
+  height: auto;
+  /*Sets a 5px margin from the top of the list section*/
+  margin-top: 5px;
+}
+
+/*Targets the list-groupp-items class (found in the JS)*/
+.list-group-item {
+  /*Sets background color to dark gray variable*/
+  background-color: var(--darkgrayAC);
+  /*Sets font color to light variable*/
+  color: var(--lightAC);
+  /*Aligns text content in the center of each item*/
+  text-align: center;
+  /*Sets font size to 24px*/
+  font-size: 24px;
+  /*Sets a 5% margin top/bottom 10px margin left/right of the list items*/
+  margin: 1% 10px;
 }
 
 /*Targest the cards-section class*/
