@@ -23,12 +23,43 @@ function generateLocationID() {
 
 // Function to print cities under the search form
 function printCities(locationEntered) {
+  // Extract the substring before the comma
+  const commaIndex = locationEntered.indexOf(",");
+  const displayLocation =
+    commaIndex !== -1
+      ? locationEntered.substring(0, commaIndex)
+      : locationEntered;
+
   // Create a list element
   const listEl = $("<li>");
-  // Add class and set text content to the list element
-  listEl.addClass("list-group-item").text(locationEntered);
+  // Add class and set text content to the list element with the modified display location
+  listEl.addClass("list-group-item").text(displayLocation);
   // Append the searched city to the list element
   listEl.appendTo(citiesListEl);
+}
+
+// Function to render the current weather data to a card
+function renderWeatherCard(data) {
+  // Clear existing content in the card-today section
+  const cardToday = document.querySelector('.card-today');
+  cardToday.innerHTML = '';
+
+  // Create HTML elements for the card
+  const card = document.createElement('div');
+  card.classList.add('weather-card');
+  
+  const cityName = document.createElement('h2');
+  cityName.textContent = data.name;
+
+  const temperature = document.createElement('p');
+  temperature.textContent = `Temperature: ${data.main.temp} K`;
+
+  // Append elements to the card
+  card.appendChild(cityName);
+  card.appendChild(temperature);
+
+  // Append the card to the card-today section
+  cardToday.appendChild(card);
 }
 
 function generateWeatherCard(weatherData) {
@@ -49,7 +80,7 @@ function generateWeatherCard(weatherData) {
   const humidity = weatherData.main.humidity;
 
   // Create elements for displaying weather information
-  const dateEl = $("<p>").text("Date: " + formattedDate);
+  const dateEl = $("<p>").text(formattedDate);
   const iconEl = $("<img>").attr("src", iconUrl).addClass("weather-icon");
   const tempEl = $("<p>").text("Temperature: " + temperatureF + " °F");
   const windEl = $("<p>").text("Wind Speed: " + windSpeed + " MPH");
@@ -59,7 +90,7 @@ function generateWeatherCard(weatherData) {
   weatherCard.append(dateEl, iconEl, tempEl, windEl, humidityEl);
 
   // Append the card to the weather cards list element
-  weatherCard.append(weatherCardsDisplay);
+  $(".card-future").append(weatherCard);
 }
 
 //Function searching by City, State and saving to localStorage
@@ -138,12 +169,27 @@ function fetchCoordinates(location) {
           localStorage.setItem("locations", JSON.stringify(locList));
           // Trigger the fetch5DayForecast function with the latitude and longitude
           fetch5DayForecast(latitude, longitude);
+          fetchCurrentWeather(latitude, longitude);
         }
       } else {
         console.error("Location not found");
       }
     })
     .catch((error) => console.error("Error fetching coordinates:", error));
+}
+
+// Function to fetch the current weather forecast using the One Call API
+function fetchCurrentWeather(latitude, longitude) {
+  const apiURL2 = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}`;
+
+  fetch(apiURL2)
+    .then((response) => response.json())
+    .then((data) => {
+      renderWeatherCard(data); // Call the function to render the weather data to a card
+    })
+    .catch((error) => {
+      console.error("Error fetching data:", error);
+    });
 }
 
 function fetch5DayForecast(latitude, longitude) {

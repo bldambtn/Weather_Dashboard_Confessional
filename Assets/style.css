@@ -166,7 +166,11 @@ aside {
 }
 
 .weatherCards-item {
-  
+  background-color: var(--blueAC);
+}
+
+div.card-today {
+  background-color: var(--greenAC);
 }
 
 footer {
