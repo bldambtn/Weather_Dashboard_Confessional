@@ -113,6 +113,8 @@ aside {
   height: auto;
   /*Sets a 5px margin from the top of the list section*/
   margin-top: 5px;
+  /*Set font size to 30px to match font size in button above*/
+  font-size: 30px;
 }
 
 /*Targets the list-groupp-items class (found in the JS)*/
