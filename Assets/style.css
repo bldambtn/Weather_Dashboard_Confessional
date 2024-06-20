@@ -129,6 +129,8 @@ aside {
   font-size: 24px;
   /*Sets a 5% margin top/bottom 10px margin left/right of the list items*/
   margin: 1% 10px;
+  /**/
+  cursor: grabbing;
 }
 
 /*Targest the cards-section class*/
