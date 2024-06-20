@@ -42,21 +42,19 @@ function generateCurrentWeather(data) {
   const currentDate = new Date(data.dt * 1000).toLocaleDateString();
   cityName.textContent = `${data.name} (${currentDate})`;
 
+  const temperatureF = Math.round(((data.main.temp - 273.15) * 9) / 5 + 32);
   const temperature = document.createElement("p");
-  temperature.textContent = `Temperature: ${data.main.temp} K`;
+  temperature.textContent = `Temp: ${temperatureF} °F`;
 
-  const weatherDescription = document.createElement("p");
-  weatherDescription.textContent = `Weather: ${data.weather[0].description}`;
-
+  const windSpeedMPH = Math.round(data.wind.speed * 2.237); // Conversion from m/s to mph
   const windSpeed = document.createElement("p");
-  windSpeed.textContent = `Wind Speed: ${data.wind.speed} m/s`;
+  windSpeed.textContent = `Wind: ${windSpeedMPH} MPH`;
 
   const humidity = document.createElement("p");
   humidity.textContent = `Humidity: ${data.main.humidity}%`;
 
   card.appendChild(cityName);
   card.appendChild(temperature);
-  card.appendChild(weatherDescription);
   card.appendChild(windSpeed);
   card.appendChild(humidity);
 
@@ -76,12 +74,11 @@ function generate5DayForecast(weatherData) {
 
   const dateEl = $("<h3>").text(formattedDate);
   const iconEl = $("<img>").attr("src", iconUrl).addClass("weather-icon");
-  const tempEl = $("<p>").text("Temperature: " + temperatureF + " °F");
-  const weatherDescription = $("<p>").text("Weather: " + weatherData.weather[0].description);
-  const windEl = $("<p>").text("Wind Speed: " + windSpeed + " MPH");
+  const tempEl = $("<p>").text("Temp: " + temperatureF + " °F");
+  const windEl = $("<p>").text("Wind: " + windSpeed + " MPH");
   const humidityEl = $("<p>").text("Humidity: " + humidity + "%");
 
-  weatherCard.append(dateEl, iconEl, tempEl, weatherDescription, windEl, humidityEl);
+  weatherCard.append(dateEl, iconEl, tempEl, windEl, humidityEl);
   $(".card-future").append(weatherCard);
 }
 
@@ -183,4 +180,4 @@ function fetch5DayForecast(latitude, longitude) {
 formEl.on("submit", handleSearch);
 
 // Load initial cities from localStorage
-locList.forEach(location => printCities(location.locationEntered));
+locList.forEach((location) => printCities(location.locationEntered));
