@@ -137,24 +137,36 @@ aside {
   flex: 70%;
   /*Sets a 5px margin around the cards section class*/
   margin: 5px;
+  /*Sets the font folor to light variable*/
+  color: var(--lightAC);
 }
 
 /*Targest the card-today class*/
 .card-today {
-  /*Sets the card-today class to 30% of the cards-section height*/
+  /*Sets the card-today class to 30% of the cards-section height at most*/
   height: 30%;
-  /*Puts a 1px solid gray boarder around the cards section class*/
-  border: 1px solid var(--darkgrayAC);
-  /*Sets a 10px margin below the card-today class*/
+}
+
+/* Add styling for the currentWeatherCard */
+#currentWeatherCard {
+  background-color: var(--greenAC);
+  padding: 10px;
   margin-bottom: 10px;
 }
 
-/*Targest h2 element within the card-today class*/
-.card-today h2 {
-  /*Sets 10px top/bottom and 30px right of the h1 element*/
-  padding: 5px 0px 0px 5px;
-  /*Sets the font color to dark gray*/
-  color: var(--darkgrayAC);
+/* Ensure this class exists and is styled */
+.weather-card {
+  background-color: var(--greenAC);
+  color: var(--lightAC);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+.currentWeatherCard-item h2 {
+  padding: 5px 0px 0px 15px;
+  color: var(--lightAC);
+  font-size: 48px;
 }
 
 /*Targest the card-future class*/
@@ -165,12 +177,16 @@ aside {
   margin: 0;
 }
 
-.weatherCards-item {
+.futureWeatherCards-item {
   background-color: var(--blueAC);
+  padding: 5px;
+  display: inline-block; /* Set the cards to display inline */
+  width: auto; /* Adjust the width as needed */
+  margin: 5px; /* Add some margin between the cards */
 }
 
-div.card-today {
-  background-color: var(--greenAC);
+.futureWeatherCards-item h3{
+  text-align: center;
 }
 
 footer {
