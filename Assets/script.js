@@ -4,7 +4,6 @@ let nextId = JSON.parse(localStorage.getItem("nextId")) || 1;
 const formEl = $("#searchForm");
 const cityStateEL = $("#city-state");
 const citiesListEl = $("#cities-list");
-const weatherCardsDisplay = $("#weatherCards");
 
 //Fuction to generate a unique ID for each location searched
 function generateLocationID() {
@@ -39,34 +38,43 @@ function printCities(locationEntered) {
 }
 
 // Function to render the current weather data to a card
-function renderWeatherCard(data) {
-  // Clear existing content in the card-today section
-  const cardToday = document.querySelector('.card-today');
-  cardToday.innerHTML = '';
+function generateCurrentWeather(data) {
+  // Clear existing content in the currentWeatherCards section
+  const cardToday = document.querySelector("#currentWeatherCard");
+  cardToday.innerHTML = "";
 
   // Create HTML elements for the card
-  const card = document.createElement('div');
-  card.classList.add('weather-card');
-  
-  const cityName = document.createElement('h2');
-  cityName.textContent = data.name;
+  const card = document.createElement("div");
+  card.classList.add("weather-card");
 
-  const temperature = document.createElement('p');
+  const cityName = document.createElement("h2");
+  const currentDate = new Date(data.dt * 1000).toLocaleDateString();
+  cityName.textContent = `${data.name} (${currentDate})`;
+
+  const temperature = document.createElement("p");
   temperature.textContent = `Temperature: ${data.main.temp} K`;
+
+  const windSpeed = document.createElement("p");
+  windSpeed.textContent = `Wind Speed: ${data.wind.speed} m/s`;
+
+  const humidity = document.createElement("p");
+  humidity.textContent = `Humidity: ${data.main.humidity}%`;
 
   // Append elements to the card
   card.appendChild(cityName);
   card.appendChild(temperature);
+  card.appendChild(windSpeed);
+  card.appendChild(humidity);
 
-  // Append the card to the card-today section
+  // Append the card to the currentWeatherCards section
   cardToday.appendChild(card);
 }
 
-function generateWeatherCard(weatherData) {
+function generate5DayForecast(weatherData) {
   // Create the card element as an article
   const weatherCard = $("<article>");
 
-  weatherCard.addClass("weatherCards-item");
+  weatherCard.addClass("futureWeatherCards-item");
   // Extract necessary information from the weather data
   const date = new Date(weatherData.dt * 1000); // Convert timestamp to date
   const formattedDate = `${
@@ -80,7 +88,7 @@ function generateWeatherCard(weatherData) {
   const humidity = weatherData.main.humidity;
 
   // Create elements for displaying weather information
-  const dateEl = $("<p>").text(formattedDate);
+  const dateEl = $("<h3>").text(formattedDate);
   const iconEl = $("<img>").attr("src", iconUrl).addClass("weather-icon");
   const tempEl = $("<p>").text("Temperature: " + temperatureF + " °F");
   const windEl = $("<p>").text("Wind Speed: " + windSpeed + " MPH");
@@ -185,7 +193,8 @@ function fetchCurrentWeather(latitude, longitude) {
   fetch(apiURL2)
     .then((response) => response.json())
     .then((data) => {
-      renderWeatherCard(data); // Call the function to render the weather data to a card
+      console.log("Current Weather Data:", data); // Log the data received
+      generateCurrentWeather(data); // Call the function to render the weather data to a card
     })
     .catch((error) => {
       console.error("Error fetching data:", error);
@@ -198,6 +207,9 @@ function fetch5DayForecast(latitude, longitude) {
   fetch(apiURL3)
     .then((response) => response.json())
     .then((data) => {
+      // Clear the existing future weather cards
+      $(".card-future").empty();
+
       // Filter the responses to only show those with dt_txt at 12:00:00
       const filteredData = data.list.filter((item) =>
         item.dt_txt.endsWith("12:00:00")
@@ -205,7 +217,7 @@ function fetch5DayForecast(latitude, longitude) {
 
       // Loop through the filtered data and generate weather cards for each day
       filteredData.forEach((item) => {
-        generateWeatherCard(item); // Call generateWeatherCard function with each day's forecast data
+        generate5DayForecast(item); // Call generate5DayForecast function with each day's forecast data
       });
     })
     .catch((error) => {
