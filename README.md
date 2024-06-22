@@ -34,7 +34,7 @@ The following image shows the web application's appearance and functionality:
 
 ## Link to Deployed application
 
-* 
+* https://bldambtn.github.io/Weather_Dashboard_Confessional/ 
 
 ## Credits
 

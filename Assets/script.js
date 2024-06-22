@@ -72,16 +72,20 @@ function generate5DayForecast(weatherData) {
   weatherCard.addClass("futureWeatherCards-item");
 
   const date = new Date(weatherData.dt * 1000);
-  const formattedDate = `${date.getMonth() + 1}/${date.getDate()}/${date.getFullYear()}`;
+  const formattedDate = `${
+    date.getMonth() + 1
+  }/${date.getDate()}/${date.getFullYear()}`;
   const iconUrl = `https://openweathermap.org/img/w/${weatherData.weather[0].icon}.png`;
-  const temperatureF = Math.round(((weatherData.main.temp - 273.15) * 9) / 5 + 32);
-  const windSpeed = weatherData.wind.speed;
+  const temperatureF = Math.round(
+    ((weatherData.main.temp - 273.15) * 9) / 5 + 32
+  );
+  const windSpeedMPH = Math.round(weatherData.wind.speed * 2.237); // Convert m/s to mph
   const humidity = weatherData.main.humidity;
 
   const dateEl = $("<h3>").text(formattedDate);
   const iconEl = $("<img>").attr("src", iconUrl).addClass("weather-icon");
   const tempEl = $("<p>").text("Temp: " + temperatureF + " °F");
-  const windEl = $("<p>").text("Wind: " + windSpeed + " MPH");
+  const windEl = $("<p>").text("Wind: " + windSpeedMPH + " MPH"); // Display wind speed in mph
   const humidityEl = $("<p>").text("Humidity: " + humidity + "%");
 
   weatherCard.append(dateEl, iconEl, tempEl, windEl, humidityEl);
