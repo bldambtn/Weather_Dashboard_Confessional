@@ -38,17 +38,23 @@ The following image shows the web application's appearance and functionality:
 
 ## Credits
 
-### Collaborator(s):
-
 ### Research Sources:
 
 *   Coding Boot Camp. (n.d.). (accessed June 16, 2024) How to Use API Keys. Retrieved from https://coding-boot-camp.github.io/full-stack/apis/how-to-use-api-keys 
 
 *	CSS Gradient. (n.d.). (accessed June 16, 2024) Retrieved from https://cssgradient.io/ 
 
+*   Mozilla. (accessed June 22, 2024). Flexbox. Mozilla Developer Network. https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox
+
 *   OpenWeatherMap. (n.d.). (accessed June 16, 2024) 5 Day Weather Forecast. Retrieved from https://openweathermap.org/forecast5 
 
+*   React Handbook. (accessed June 22, 2024). HTML Semantics. React Handbook. https://reacthandbook.dev/semantics
+
+*   W3Schools. (accessed June 22, 2024). Box model. W3Schools. https://www.w3schools.com/css/css_boxmodel.asp
+
 *   W3Schools. (accessed June 16, 2024). CSS Gradients. Retrieved from https://www.w3schools.com/css/css3_gradients.asp
+
+*   W3Schools. (accessed June 22, 2024). CSS Media Queries. Retrieved from https://www.w3schools.com/css/css_rwd_mediaqueries.asp
 
 ## License
 MIT License

@@ -71,13 +71,13 @@ aside {
 .search-section {
   /*Puts a 1px solid gray boarder around the aside element*/
   border-bottom: 1px solid var(--darkgrayAC);
-  /*Sets the aside height to 30% of the aside height*/
+  /*Sets the aside height to auto*/
   height: auto;
 }
 
 /*Targets the section inside of the main element*/
 .search-section h2 {
-  /*Sets 10px top/bottom and 30px right of the h1 element*/
+  /*Sets 10px top/bottom and 5px right of the h1 element*/
   padding: 10px 0px 0px 5px;
   /*Sets the font color to dark gray*/
   color: var(--darkgrayAC);
@@ -95,7 +95,7 @@ aside {
 
 /*Targets the city-state id*/
 #city-state {
-  /*Sets a 5% margin below the city, state input field*/
+  /*Sets a 8% margin below the city, state input field*/
   margin-bottom: 8%;
 }
 
@@ -129,7 +129,7 @@ aside {
   text-align: center;
   /*Sets font size to 24px*/
   font-size: 24px;
-  /*Sets a 5% margin top/bottom 10px margin left/right of the list items*/
+  /*Sets a 1% margin top/bottom 10px margin left/right of the list items*/
   margin: 1% 10px;
   /*Makes cursor into a grabby hand when hovering over the city icons*/
   cursor: grab;
@@ -148,19 +148,19 @@ aside {
 /*Targest the card-today class*/
 .card-today {
   /*Sets the card-today class to 30% of the cards-section height at most*/
-  max-height: 30%;
+  height: 30%;
 }
 
-/* Ensure this class exists and is styled */
+/*Targets the weather-card section*/
 .weather-card {
   /*Sets background color to green variable*/
   background-color: var(--greenAC);
   /*Sets font color to light variable*/
   color: var(--lightAC);
-  /*Sets font size for today's weather info to 24px*/
-  font-size: 24px;
   /*Sets 10px padding all around card contents*/
   padding: 10px;
+  /*Sets a 10px margin from the right*/
+  margin-right: 10px;
 }
 
 /*Targets the weather-card h2*/
@@ -175,7 +175,7 @@ aside {
   font-weight: 700;
 }
 
-/* Ensure this class exists and is styled */
+/*Targets teh weather-card p items*/
 .weather-card p {
   /*Sets background color to green variable*/
   background-color: var(--greenAC);
@@ -183,10 +183,7 @@ aside {
   color: var(--lightAC);
   /*Sets font size for today's weather info to 24px*/
   font-size: 24px;
-  /*Sets 10px padding all around card contents*/
-  padding: 10px;
 }
-
 
 /*Targets the h3 element*/
 h3 {
@@ -196,8 +193,10 @@ h3 {
   font-weight: 700;
   /*Sets the font side so it's 33px*/
   font-size: 33px;
-  /*Set 10px padding */
-  padding-top: 10px;
+  /*Sets a 3% margin from the top of the section*/
+  margin-top: 3%;
+  /*Set 10px padding top/bottom*/
+  padding: 1% 0px;
 }
 
 /*Targest the card-future class*/
@@ -206,9 +205,9 @@ h3 {
   height: 70%;
   /*Removes margin around the cards section class*/
   margin: 0;
-  /* Use flexbox */
+  /*Sets display to use flexbox*/
   display: flex;
-  /* Spread items evenly with space around */
+  /*Spreads items evenly with space around*/
   justify-content: space-around;
 }
 
@@ -216,15 +215,17 @@ h3 {
 .futureWeatherCards-item {
   /*Sets background color to blue variable*/
   background-color: var(--blueAC);
-  /*Sets the font size to */
+  /*Sets the font size to 24px*/
   font-size: 24px;
   /*Sets 5px padding all around the contents of the cards*/
   padding: 5px;
-  /* Set the cards to display inline */
+  /*Set the cards to display inline*/
   display: inline-block;
-  /* Add some margin between the cards */
-  margin: 5px;
-  /* Each card takes up an equal amount of space */
+  /*Sets the 5-day forecast cards to space evenly*/
+  justify-content: space-evenly;
+  /*Applies a 10px margin to the right of the card*/
+  margin-right: 10px;
+  /*Each card takes up an equal amount of space*/
   flex: 1;
 }
 
@@ -244,6 +245,283 @@ h3 {
   color: var(--lightAC);
 }
 
+/*Targets the footer section*/
 footer {
+  /*Gives the footer a 50px height*/
   height: 50px;
+}
+
+/*media instructions for Medium screen*/
+@media screen and (max-width: 1511px) {
+  h3 {
+    /*Sets margin from top of section to 5%*/
+    margin-top: 5%;
+    /*Set 1% padding top/bottom*/
+    padding: 1% 0px;
+  }
+
+  /*Targets the footer element*/
+  footer {
+    /*Sets the footer height to 30px*/
+    height: 30px;
+  }
+}
+
+/*media instructions for Medium2 screen*/
+@media screen and (max-width: 1267px) {
+  /*Targets the weather-card h2*/
+  .weather-card h2 {
+    /*Sets font size to 36px*/
+    font-size: 36px;
+  }
+
+  /*Targets the weather-card p items*/
+  .weather-card p {
+    /*Sets font size for today's weather info to 20px*/
+    font-size: 20px;
+  }
+
+  /*Targets the h3 element*/
+  h3 {
+    /*Sets the font side so it's 28px*/
+    font-size: 28px;
+    /*Sets a 3% margin from the top of the section*/
+    margin-top: 3%;
+    /*Set 1% padding top/bottom*/
+    padding: 1% 0px;
+  }
+
+  /*Targets the 5-Day forecast cards*/
+  .futureWeatherCards-item {
+    /*Sets the font size to 20px*/
+    font-size: 20px;
+  }
+
+  /*Targets the 5-Day forecast cards' header*/
+  .futureWeatherCards-item h3 {
+    /*Sets font size to 24px*/
+    font-size: 24px;
+  }
+
+  /*Targets the foot element*/
+  footer {
+    /*Sets height to 20px*/
+    height: 20px;
+  }
+}
+
+/*media instructions for Medium3 screen*/
+@media screen and (max-width: 1083px) {
+  /*Targets the 5-Day forecast cards*/
+  .futureWeatherCards-item {
+    /*Sets the font size to 18px*/
+    font-size: 18px;
+  }
+
+  /*Targets the footer element*/
+  footer {
+    /*Sets to footer height to 15px*/
+    height: 15px;
+  }
+}
+
+/*media instructions for Medium4 screen*/
+@media screen and (max-width: 991px) {
+  /*Targets the 5-Day forecast cards*/
+  .futureWeatherCards-item {
+    /*Sets the font size to 16px*/
+    font-size: 16px;
+  }
+
+  /*Targets the 5-Day forecast cards' header*/
+  .futureWeatherCards-item h3 {
+    /*Sets font size to 20px*/
+    font-size: 20px;
+  }
+
+  /*Targets the footer element*/
+  footer {
+    /*Sets the footer height to 10px*/
+    height: 10px;
+  }
+}
+
+/*media instructions for small screen*/
+@media screen and (max-width: 899px) {
+  /*Targets the header element*/
+  header {
+    /*Sets a 3px margin around the header element*/
+    margin: 3px;
+  }
+
+  /*Targets the h1 element*/
+  h1 {
+    /*Sets 5px top/bottom and 15px right of the h1 element*/
+    padding: 5px 15px 5px 0px;
+    /*Sets 'Weather Dashboard' header to 36px*/
+    font-size: 36px;
+  }
+
+  /*Targets the main element*/
+  main {
+    /*Sets the display to flex*/
+    display: flex;
+    /*Sets flex direct to column*/
+    flex-direction: column;
+  }
+
+  /*Targets the aside selement*/
+  aside {
+    /*Sets flex order*/
+    order: 1;
+    /*Sets the aside to 30% of the main element width*/
+    flex: 30%;
+    /*Sets the aside height to 100% of the viewport*/
+    height: 100vh;
+    /*Sets a 3px margin around the aside*/
+    margin: 3px;
+  }
+
+  /*Targets the search-section*/
+  .search-section {
+    /*Sets the flex order to 1*/
+    order: 1;
+    /*Sets height to auto*/
+    height: auto;
+  }
+
+
+  /*Targets the section inside of the main element*/
+  .search-section h2 {
+    text-align: center;
+    /*Sets 5px top/bottom and 3px right of the h1 element*/
+    padding: 5px 0px 0px 3px;
+  }
+
+  /*Targets the input form*/
+  #searchForm {
+    /*Sets a 3% margin top/bottom 5px margin left/right of the search form*/
+    margin: 3% 5px;
+    /*Sets the font size inside the form*/
+    font-size: 24px;
+  }
+
+  /*Targets the city-state id*/
+  #city-state {
+    /*Sets a 5% margin below the city, state input field*/
+    margin-bottom: 5%;
+  }
+
+  /*Targets the search button*/
+  #searchbtn {
+    /*Changes the font-size within the button*/
+    font-size: 24px;
+  }
+
+  /*Targets the section inside of the main element*/
+  .list-section {
+    /*Sets flex order to 1*/
+    order 1;
+    /*Sets height to auto*/
+    height: auto;
+    /*Sets a 3px margin from the top of the list section*/
+    margin-top: 3px;
+    /*Set font size to 15px to match font size in button above*/
+    font-size: 15px;
+  }
+
+  /*Targets the list-groupp-items class (found in the JS)*/
+  .list-group-item {
+    /*Sets font size to 20px*/
+    font-size: 20px;
+    /*Sets a 1% margin top/bottom 5px margin left/right of the list items*/
+    margin: 1% 5px;
+  }
+
+  /*Targest the cards-section class*/
+  .cards-section {
+    /*Sets flex order*/
+    order: 2;
+    /*Sets flex to 100%*/
+    flex: 100%;
+    /*Sets a 3px margin around the cards section class*/
+    margin: 3px;
+  }
+
+  /*Targets the weather-card section*/
+  .weather-card {
+    /*Sets 5px padding all around card contents*/
+    padding: 5px;
+    /*Sets 5px margin from the right*/
+    margin-right: 5px;
+  }
+
+  /*Targets the current weather section*/
+  .card-today {
+    /*Sets the section height to auto*/
+    height: auto;
+  }
+
+  /*Targets the weather-card h2*/
+  .weather-card h2 {
+    /*Creates 3px padding to the top and 8px left of the h2 element*/
+    padding: 3px 0px 0px 8px;
+    /*Sets font size to 24px*/
+    font-size: 24px;
+  }
+
+  /*Targets the weather card p items*/
+  .weather-card p {
+    /*Sets font size for today's weather info to 18px*/
+    font-size: 18px;
+  }
+
+  /*Targets the h3 element*/
+  h3 {
+    /*Sets the font weight so it appears lighter*/
+    font-weight: 400;
+    /*Sets the font side so it's 24px*/
+    font-size: 24px;
+    /*Sets marging from the top as 1%*/
+    margin-top: 1%;
+    /*Set 1% padding top/bottom*/
+    padding: 1% 0px;
+  }
+
+  /*Targets the 5-Day forecast cards*/
+  .futureWeatherCards-item {
+    /*Sets the font size to 16px*/
+    font-size: 16px;
+    /*Sets 3px padding all around the contents of the cards*/
+    padding: 3px;
+    /*Sets 5px margin from the right*/
+    margin-right: 5px;
+  }
+
+  /*Targets the 5-Day forecast cards' header*/
+  .futureWeatherCards-item h3 {
+    /*Reduces font size to 18px*/
+    font-size: 18px;
+  }
+}
+
+/*media instructions for extra small screen*/
+@media screen and (max-width: 576px) {
+  /*Targets the 5-day forecast cards*/
+  .futureWeatherCards-item {
+    /*Ensures the cards are stacked vertically*/
+    display: block;
+    /*Sets width to 100%*/
+    width: 100%;
+    /*Removes margin to the right*/
+    margin-right: 0;
+    /*Sets margin bottom to 10px*/
+    margin-bottom: 10px;
+  }
+
+  /*targets the 5-day forecast section*/
+  .card-future {
+    /*Ensure the container for future cards stacks them vertically*/
+    display: block;
+  }
 }
