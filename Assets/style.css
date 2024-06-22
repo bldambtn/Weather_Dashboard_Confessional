@@ -47,6 +47,8 @@ h1 {
   color: var(--darkgrayAC);
   /*Sets 10px top/bottom and 30px right of the h1 element*/
   padding: 10px 30px 10px 0px;
+  /*Sets 'Weather Dashboard' header to 48px*/
+  font-size: 48px;
 }
 
 /*Targets the main element*/
@@ -129,8 +131,8 @@ aside {
   font-size: 24px;
   /*Sets a 5% margin top/bottom 10px margin left/right of the list items*/
   margin: 1% 10px;
-  /**/
-  cursor: grabbing;
+  /*Makes cursor into a grabby hand when hovering over the city icons*/
+  cursor: grab;
 }
 
 /*Targest the cards-section class*/
@@ -146,29 +148,56 @@ aside {
 /*Targest the card-today class*/
 .card-today {
   /*Sets the card-today class to 30% of the cards-section height at most*/
-  height: 30%;
-}
-
-/* Add styling for the currentWeatherCard */
-#currentWeatherCard {
-  background-color: var(--greenAC);
-  padding: 10px;
-  margin-bottom: 10px;
+  max-height: 30%;
 }
 
 /* Ensure this class exists and is styled */
 .weather-card {
+  /*Sets background color to green variable*/
   background-color: var(--greenAC);
+  /*Sets font color to light variable*/
   color: var(--lightAC);
+  /*Sets font size for today's weather info to 24px*/
+  font-size: 24px;
+  /*Sets 10px padding all around card contents*/
   padding: 10px;
-  border-radius: 5px;
-  margin-bottom: 10px;
 }
 
-.currentWeatherCard-item h2 {
+/*Targets the weather-card h2*/
+.weather-card h2 {
+  /*Creates 5px padding to the top and left of the h2 element*/
   padding: 5px 0px 0px 15px;
+  /*Sets font color to light color variable*/
   color: var(--lightAC);
+  /*Sets font size to 48px*/
   font-size: 48px;
+  /*Sets font weight to 700 to make the h2 element look bolder*/
+  font-weight: 700;
+}
+
+/* Ensure this class exists and is styled */
+.weather-card p {
+  /*Sets background color to green variable*/
+  background-color: var(--greenAC);
+  /*Sets font color to light variable*/
+  color: var(--lightAC);
+  /*Sets font size for today's weather info to 24px*/
+  font-size: 24px;
+  /*Sets 10px padding all around card contents*/
+  padding: 10px;
+}
+
+
+/*Targets the h3 element*/
+h3 {
+  /*Sets the font color to dark gary variable*/
+  color: var(--darkgrayAC);
+  /*Sets the font weight so it appears bolded*/
+  font-weight: 700;
+  /*Sets the font side so it's 33px*/
+  font-size: 33px;
+  /*Set 10px padding */
+  padding-top: 10px;
 }
 
 /*Targest the card-future class*/
@@ -177,18 +206,42 @@ aside {
   height: 70%;
   /*Removes margin around the cards section class*/
   margin: 0;
+  /* Use flexbox */
+  display: flex;
+  /* Spread items evenly with space around */
+  justify-content: space-around;
 }
 
+/*Targets the 5-Day forecast cards*/
 .futureWeatherCards-item {
+  /*Sets background color to blue variable*/
   background-color: var(--blueAC);
+  /*Sets the font size to */
+  font-size: 24px;
+  /*Sets 5px padding all around the contents of the cards*/
   padding: 5px;
-  display: inline-block; /* Set the cards to display inline */
-  width: auto; /* Adjust the width as needed */
-  margin: 5px; /* Add some margin between the cards */
+  /* Set the cards to display inline */
+  display: inline-block;
+  /* Add some margin between the cards */
+  margin: 5px;
+  /* Each card takes up an equal amount of space */
+  flex: 1;
 }
 
-.futureWeatherCards-item h3{
+/*Targets the weather icon and centers it*/
+.futureWeatherCards-item .weather-icon {
+  /*Sets it to block display*/
+  display: block;
+  /*Removes top/bottom margin and uses auto to center the icon*/
+  margin: 0 auto;
+}
+
+/*Targets the 5-Day forecast cards' header*/
+.futureWeatherCards-item h3 {
+  /*Aligns header text - center*/
   text-align: center;
+  /*Sets the font color to the light variable*/
+  color: var(--lightAC);
 }
 
 footer {
