@@ -42,6 +42,11 @@ function generateCurrentWeather(data) {
   const currentDate = new Date(data.dt * 1000).toLocaleDateString();
   cityName.textContent = `${data.name} (${currentDate})`;
 
+  const iconUrl = `https://openweathermap.org/img/w/${data.weather[0].icon}.png`;
+  const weatherIcon = document.createElement("img");
+  weatherIcon.src = iconUrl;
+  weatherIcon.classList.add("weather-icon");
+
   const temperatureF = Math.round(((data.main.temp - 273.15) * 9) / 5 + 32);
   const temperature = document.createElement("p");
   temperature.textContent = `Temp: ${temperatureF} °F`;
@@ -54,7 +59,8 @@ function generateCurrentWeather(data) {
   humidity.textContent = `Humidity: ${data.main.humidity}%`;
 
   card.appendChild(cityName);
-  card.appendChild(temperature);
+  card.appendChild(weatherIcon); // Append the weather icon below the header
+  card.appendChild(temperature); // Append the temperature below the weather icon
   card.appendChild(windSpeed);
   card.appendChild(humidity);
 
